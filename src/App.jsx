@@ -5,6 +5,7 @@ import Orders from "/src/pages/Orders/orders";
 import Products from "/src/pages/Products/products";
 import Other from "/src/pages/Other/other";
 import Login from './pages/login/login';
+import AddProduct from "./pages/addProduct/addProduct";
 function App() {
   const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ function App() {
         {
           path: "/products",
           element: <Products />,
+        },
+        {
+          path: "/addProduct",
+          element: <AddProduct/>
         },
         {
           path: "/other",

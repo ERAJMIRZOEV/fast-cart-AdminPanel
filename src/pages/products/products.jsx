@@ -29,8 +29,9 @@ import {
   Edit,
   Delete
 } from '@mui/icons-material';
-import { deleteProduct, getProduct } from '../../api/getProduct/getProduct';
+import { deleteProduct, getProduct } from '../../api/getProductApi/getProduct';
 import { toast, Toaster } from "sonner";
+import { Link } from 'react-router-dom';
 
 
 const Products = () => {
@@ -71,6 +72,7 @@ const Products = () => {
         <Typography variant="h4" fontWeight="bold">
           Products
         </Typography>
+        <Link to='/addProduct'>
         <Button
           variant="contained"
           startIcon={<Add />}
@@ -80,9 +82,10 @@ const Products = () => {
               backgroundColor: '#1976d2'
             }
           }}
-        >
-          Add order
+          >
+          Add product
         </Button>
+          </Link>
       </Box>
 
       

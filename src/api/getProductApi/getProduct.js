@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { API } from './../../utils/config';
+import { API } from '../../utils/config';
 import { axiosRequest } from '../../utils/axios';
 import { toast, Toaster } from "sonner";
 
@@ -13,6 +13,16 @@ export const getProduct = createAsyncThunk('products/getProduct',
         try {
             const { data } = await axios.get(`${API}/Product/get-products`)
             return data?.data?.products
+        } catch (error) {
+            console.log(error)
+        }
+   }
+)
+
+export const addProduct = createAsyncThunk('products/getProducts',
+    async(newProduct)=> {
+        try {
+            await axiosRequest.post('/Product/add-product', newProduct)
         } catch (error) {
             console.log(error)
         }
