@@ -6,6 +6,9 @@ import Products from "/src/pages/Products/products";
 import Other from "/src/pages/Other/other";
 import Login from './pages/login/login';
 import AddProduct from "./pages/addProduct/addProduct";
+import Brands from "./pages/other/otherBrands";
+import BrandsOtherSubCategory from "./pages/other/otherSubCategory";
+import EditProduct from "./pages/editProducts/editProducts";
 function App() {
   const router = createBrowserRouter([
     {
@@ -33,6 +36,23 @@ function App() {
           path: "/other",
           element: <Other />,
         },
+        {
+          path: "/other",
+          element: <Other />,
+        },
+        {
+          path: "/brands",
+          element: <Brands />,
+        },
+        {
+          path: "/subcategories",
+          element: <BrandsOtherSubCategory />,
+        },
+        {
+          path: "/editproduct",
+          element: <EditProduct/> 
+        },
+          
       ],
       
     },

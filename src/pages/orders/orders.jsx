@@ -171,7 +171,19 @@ const Orders = () => {
             </TableHead>
             <TableBody>
               {orders.map((order, index) => (
-                <TableRow key={index} hover>
+                <TableRow
+                  key={index}
+                  hover
+                  sx={{
+                    transition: 'transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1)',
+                    cursor: 'pointer',
+                    '&:hover': {
+                      transform: 'scale(1.025) translateY(-2px)',
+                      boxShadow: 3,
+                      background: 'linear-gradient(90deg, #e3f2fd 0%, #fce4ec 100%)',
+                    },
+                  }}
+                >
                   <TableCell padding="checkbox">
                     <Checkbox
                       checked={selectedOrders.includes(order.id)}
@@ -207,7 +219,9 @@ const Orders = () => {
                         backgroundColor: order.paymentStatus === 'Paid' ? '#e8f5e8' : '#fff3e0',
                         color: order.paymentStatus === 'Paid' ? '#2e7d32' : '#f57c00',
                         fontWeight: 'medium',
-                        fontSize: '12px'
+                        fontSize: '12px',
+                        boxShadow: 1,
+                        transition: 'background 0.3s',
                       }}
                     />
                   </TableCell>
@@ -218,7 +232,9 @@ const Orders = () => {
                       sx={{
                         ...getOrderStatusStyle(order.orderStatus),
                         fontWeight: 'medium',
-                        fontSize: '12px'
+                        fontSize: '12px',
+                        boxShadow: 1,
+                        transition: 'background 0.3s',
                       }}
                     />
                   </TableCell>

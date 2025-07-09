@@ -110,7 +110,19 @@ const Dashboard = () => {
   ];
 
   const MetricCard = ({ title, value, icon, color }) => (
-    <Card sx={{ height: "100%" }}>
+    <Card
+      sx={{
+        height: "100%",
+        transition: 'transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1)',
+        cursor: 'pointer',
+        boxShadow: 1,
+        '&:hover': {
+          transform: 'scale(1.04) translateY(-4px)',
+          boxShadow: 6,
+          background: 'linear-gradient(90deg, #e3f2fd 0%, #fce4ec 100%)',
+        },
+      }}
+    >
       <CardContent>
         <Box display="flex" alignItems="center" gap={2}>
           <Box
@@ -122,6 +134,8 @@ const Dashboard = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              transition: 'background 0.3s',
+              boxShadow: 2,
             }}
           >
             {icon}
@@ -310,7 +324,18 @@ const Dashboard = () => {
 
         
         <Grid item xs={12} md={8}>
-          <Card>
+          <Card
+            sx={{
+              transition: 'transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1)',
+              cursor: 'pointer',
+              boxShadow: 1,
+              '&:hover': {
+                transform: 'scale(1.02) translateY(-2px)',
+                boxShadow: 6,
+                background: 'linear-gradient(90deg, #e3f2fd 0%, #fce4ec 100%)',
+              },
+            }}
+          >
             <CardContent>
               <Typography variant="h6" fontWeight="bold" mb={2}>
                 Sales Revenue
@@ -322,7 +347,18 @@ const Dashboard = () => {
 
         
         <Grid item xs={12} md={4}>
-          <Card>
+          <Card
+            sx={{
+              transition: 'transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1)',
+              cursor: 'pointer',
+              boxShadow: 1,
+              '&:hover': {
+                transform: 'scale(1.02) translateY(-2px)',
+                boxShadow: 6,
+                background: 'linear-gradient(90deg, #e3f2fd 0%, #fce4ec 100%)',
+              },
+            }}
+          >
             <CardContent>
               <Box
                 display="flex"
@@ -349,12 +385,27 @@ const Dashboard = () => {
                     alignItems="center"
                     gap={2}
                     mb={2}
+                    sx={{
+                      transition: 'transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1)',
+                      cursor: 'pointer',
+                      borderRadius: 2,
+                      '&:hover': {
+                        transform: 'scale(1.04) translateY(-2px)',
+                        boxShadow: 4,
+                        background: 'linear-gradient(90deg, #e3f2fd 0%, #fce4ec 100%)',
+                      },
+                    }}
                   >
                     <Avatar
                       sx={{
                         width: 40,
                         height: 40,
                         backgroundColor: "#f5f5f5",
+                        transition: 'background 0.3s',
+                        boxShadow: 1,
+                        '&:hover': {
+                          backgroundColor: '#e3f2fd',
+                        },
                       }}
                     >
                       <ShoppingCart sx={{ color: "#666" }} />
@@ -388,7 +439,18 @@ const Dashboard = () => {
 
         
         <Grid item xs={12} md={6}>
-          <Card>
+          <Card
+            sx={{
+              transition: 'transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1)',
+              cursor: 'pointer',
+              boxShadow: 1,
+              '&:hover': {
+                transform: 'scale(1.02) translateY(-2px)',
+                boxShadow: 6,
+                background: 'linear-gradient(90deg, #e3f2fd 0%, #fce4ec 100%)',
+              },
+            }}
+          >
             <CardContent>
               <Typography variant="h6" fontWeight="bold" mb={2}>
                 Recent Transactions
@@ -405,10 +467,21 @@ const Dashboard = () => {
                   </TableHead>
                   <TableBody>
                     {transactions.map((transaction, index) => (
-                      <TableRow key={index}>
-                        <TableCell>{transaction.name}</TableCell>
-                        <TableCell>{transaction.date}</TableCell>
-                        <TableCell>{transaction.amount}</TableCell>
+                      <TableRow
+                        key={index}
+                        sx={{
+                          transition: 'transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1)',
+                          cursor: 'pointer',
+                          '&:hover': {
+                            transform: 'scale(1.025) translateY(-2px)',
+                            boxShadow: 3,
+                            background: 'linear-gradient(90deg, #e3f2fd 0%, #fce4ec 100%)',
+                          },
+                        }}
+                      >
+                        <TableCell sx={{ fontWeight: 500 }}>{transaction.name}</TableCell>
+                        <TableCell sx={{ color: '#1976d2', fontWeight: 500 }}>{transaction.date}</TableCell>
+                        <TableCell sx={{ color: '#388e3c', fontWeight: 500 }}>{transaction.amount}</TableCell>
                         <TableCell>
                           <Chip
                             label={transaction.status}
@@ -428,6 +501,8 @@ const Dashboard = () => {
                                   ? "#2e7d32"
                                   : "#f57c00",
                               fontWeight: "medium",
+                              boxShadow: 1,
+                              transition: 'background 0.3s',
                             }}
                           />
                         </TableCell>
@@ -458,10 +533,37 @@ const Dashboard = () => {
                   </TableHead>
                   <TableBody>
                     {topProducts.map((product, index) => (
-                      <TableRow key={index}>
-                        <TableCell>{product.name}</TableCell>
-                        <TableCell>{product.price}</TableCell>
-                        <TableCell>{product.units}</TableCell>
+                      <TableRow
+                        key={index}
+                        sx={{
+                          transition: 'transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1)',
+                          cursor: 'pointer',
+                          '&:hover': {
+                            transform: 'scale(1.025) translateY(-2px)',
+                            boxShadow: 3,
+                            background: 'linear-gradient(90deg, #e3f2fd 0%, #fce4ec 100%)',
+                          },
+                        }}
+                      >
+                        <TableCell sx={{ fontWeight: 500, letterSpacing: 0.2 }}>{product.name}</TableCell>
+                        <TableCell sx={{ color: '#1976d2', fontWeight: 500 }}>{product.price}</TableCell>
+                        <TableCell>
+                          <Box
+                            sx={{
+                              display: 'inline-block',
+                              px: 2,
+                              py: 0.5,
+                              borderRadius: 2,
+                              background: 'linear-gradient(90deg, #bbdefb 0%, #f8bbd0 100%)',
+                              fontWeight: 600,
+                              color: '#333',
+                              boxShadow: 1,
+                              transition: 'background 0.3s',
+                            }}
+                          >
+                            {product.units}
+                          </Box>
+                        </TableCell>
                       </TableRow>
                     ))}
                   </TableBody>

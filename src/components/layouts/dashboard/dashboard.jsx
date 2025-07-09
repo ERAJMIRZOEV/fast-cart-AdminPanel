@@ -52,9 +52,9 @@ const Dashbord = () => {
       window={demoWindow}
     >
       <DashboardLayout>
-        <PageContainer>
+        {/* <PageContainer> */}
           <Outlet />
-        </PageContainer>
+        {/* </PageContainer> */}
       </DashboardLayout>
     </AppProvider>
   );
